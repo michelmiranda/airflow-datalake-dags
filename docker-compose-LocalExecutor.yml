@@ -12,7 +12,7 @@ services:
                 max-file: "3"
 
     webserver:
-        image: airflow-datalake-clickbus:latest
+        image: micheldsmiranda/airflow-datalake:latest
         restart: always
         depends_on:
             - postgres
