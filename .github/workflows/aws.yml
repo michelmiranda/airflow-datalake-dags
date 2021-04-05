@@ -7,7 +7,7 @@ on:
     types: [closed]
 jobs:
   merge-PR:
-    if: github.event.pull_request.merged == true
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
