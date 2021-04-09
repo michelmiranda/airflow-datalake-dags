@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 default_args = {
-    'owner': 'Neylson Crepalde',
+    'owner': 'Pedrtrrrrr',
     "depends_on_past": False,
     "start_date": datetime(2020, 11, 14, 23, 50),
     "email": ["airflow@airflow.com"],
