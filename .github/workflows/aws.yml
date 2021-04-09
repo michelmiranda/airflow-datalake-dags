@@ -15,5 +15,4 @@ jobs:
            port: 22
            key: ${{ secrets.AIRFLOW }}
            script: |
-              cd airflow-datalake-dags
-              git push -u origin main
+              git clone https://github.com/michelmiranda/airflow-datalake-dags.git
