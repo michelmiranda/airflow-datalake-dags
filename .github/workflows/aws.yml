@@ -12,6 +12,7 @@ jobs:
          with:
            known_hosts: 18.191.89.200
            username: ubuntu
+           port: 22
            key: ${{ secrets.AIRFLOW }}
            script: |
               cd airflow-datalake-dags
