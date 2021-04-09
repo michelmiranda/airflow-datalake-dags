@@ -10,7 +10,7 @@ jobs:
        - name: server ssh connection
          uses: shimataro/ssh-key-action@v2
          with:
-           host: 18.191.89.200
+           known_hosts: 18.191.89.200
            username: ubuntu
            key: ${{ secrets.AIRFLOW }}
            port: 22
