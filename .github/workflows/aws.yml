@@ -1,19 +1,20 @@
-name: Deploy EC2
+name: Deploying
+
 on:
   push:
-    branches: [master]
+    branches:
+      - main
+
 jobs:
-   job_one:
-     name: Deploy
-     runs-on: ubuntu-latest
-     steps:
-       - name: server ssh connection
-         uses: shimataro/ssh-key-action@v2
-         with:
-           known_hosts: 18.191.89.200
-           username: ubuntu
-           port: 22
-           key: ${{ secrets.AIRFLOW }}
-           script: |
-              cd airflow-datalake-dags
-              git push -u origin main
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_KEY }}
+          script: sh deploy.sh
