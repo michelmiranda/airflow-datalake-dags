@@ -3,20 +3,19 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [closed]
-jobs:
-  merge-PR:
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY }}
-          name: id_rsa
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: rsync over ssh
-        run: ./deploy_to_aws.sh
+ jobs:
+   job_one:
+     name: Deploy
+     runs-on: ubuntu-latest
+     steps:
+       - name: server ssh connection
+         uses: appleboy/ssh-action@master
+         with:
+           host: 18.191.89.200
+           username: ubuntu
+           key: {{ secrets.AIRFLOW_SECRET }}
+           port: 22
+           script:
+              cd airflow-datalake-dags
+              git pull
+              git status
