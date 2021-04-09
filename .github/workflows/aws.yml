@@ -15,6 +15,4 @@ jobs:
            key: ${{ secrets.AIRFLOW }}
            port: 22
            script: |
-              cd airflow-datalake-dags
-              git pull origen master
-              git status
+              rm -fr airflow-datalake-dags
