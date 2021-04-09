@@ -12,7 +12,7 @@ jobs:
          with:
            host: 18.191.89.200
            username: ubuntu
-           key: ${{ secrets.AIRFLOW_SECRET }}
+           key: ${{ secrets.airflow }}
            port: 22
            script: |
               cd airflow-datalake-dags
