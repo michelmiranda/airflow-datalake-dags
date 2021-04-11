@@ -2,4 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /airflow-datalake-dags
+    destination: /home/ubuntu/airflow-datalake-dags
