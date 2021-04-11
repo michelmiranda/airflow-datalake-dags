@@ -1,5 +1,5 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ubuntu/airflow-datalake-dags
+  - source: dags/
+    destination: /home/ubuntu/airflow-datalake-dags/dags
